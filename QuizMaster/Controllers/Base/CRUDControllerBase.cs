@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -15,30 +14,30 @@ namespace QuizMaster.Controllers.Base
             _dataService = dataService;
         }
         
-        public virtual async Task<ActionResult> Create(T model)
+        public virtual async Task<ActionResult> CreateAsync(T model)
         {
-            var ret = await _dataService.Create(model);
+            var ret = await _dataService.CreateAsync(model);
             return Created($"{Request.Path}{ret.Id}",ret);
         }
 
-        public virtual async Task<ActionResult> ReadAll()
+        public virtual async Task<ActionResult> GetAllAsync()
         {
-            return Json(await _dataService.ReadAll());
+            return Json(await _dataService.GetAllAsync());
         }
 
-        public virtual async Task<ActionResult> Read(int id)
+        public virtual async Task<ActionResult> GetOneAsync(int id)
         {
-            return Json(await _dataService.ReadOne(id));
+            return Json(await _dataService.GetOneAsync(id));
         }
 
-        public virtual async Task<ActionResult> Update(T model, int id)
+        public virtual async Task<ActionResult> UpdateAsync(T model, int id)
         {
-            return Json(await _dataService.Update(model, id));
+            return Json(await _dataService.UpdateAsync(model, id));
         }
 
-        public virtual async Task<ActionResult> Delete(int id)
+        public virtual async Task<ActionResult> DeleteAsync(int id)
         {
-            await _dataService.Delete(id);
+            await _dataService.DeleteAsync(id);
             return Ok();
         }
     }
