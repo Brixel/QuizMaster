@@ -5,4 +5,8 @@
         <AssemblyName>QuizMaster.API.Services</AssemblyName>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Shared\Shared.csproj" />
+    </ItemGroup>
+
 </Project>

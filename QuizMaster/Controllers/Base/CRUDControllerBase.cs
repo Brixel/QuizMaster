@@ -7,22 +7,22 @@ namespace QuizMaster.Controllers.Base
 {
     public abstract class CRUDControllerBase<T> : Controller where T : IModel
     {
-        public virtual async Task<ActionResult> Create<T>(T model)
+        public virtual async Task<ActionResult> Create(T model)
         {
             throw new NotImplementedException();
         }
 
-        public virtual async Task<ActionResult> Read<T>(int id)
+        public virtual async Task<ActionResult> Read(int id)
         {
             throw new NotImplementedException();
         }
 
-        public virtual async Task<ActionResult> Update<T>(T model, int id)
+        public virtual async Task<ActionResult> Update(T model, int id)
         {
             throw new NotImplementedException();
         }
 
-        public virtual async Task<ActionResult> Delete<T>(int id)
+        public virtual async Task<ActionResult> Delete(int id)
         {
             throw new NotImplementedException();
         }
