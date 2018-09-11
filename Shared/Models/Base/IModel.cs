@@ -1,3 +1,4 @@
+﻿
 namespace Shared.Models.Base
 {
     public interface IModel
