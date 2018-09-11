@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Shared.Models.Base;
+using QuizMaster.Shared.Models.Base;
 
 namespace QuizMaster.Controllers.Base
 {
