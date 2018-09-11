@@ -10,28 +10,36 @@ namespace QuizMaster.Controllers.Base
     {
         protected readonly IDataService<T> _dataService;
 
-        public CRUDControllerBase(IDataService<T> dataService)
+        protected CRUDControllerBase(IDataService<T> dataService)
         {
             _dataService = dataService;
         }
+        
         public virtual async Task<ActionResult> Create(T model)
         {
-            throw new NotImplementedException();
+            var ret = await _dataService.Create(model);
+            return Created($"{Request.Path}{ret.Id}",ret);
+        }
+
+        public virtual async Task<ActionResult> ReadAll()
+        {
+            return Json(await _dataService.ReadAll());
         }
 
         public virtual async Task<ActionResult> Read(int id)
         {
-            throw new NotImplementedException();
+            return Json(await _dataService.ReadOne(id));
         }
 
         public virtual async Task<ActionResult> Update(T model, int id)
         {
-            throw new NotImplementedException();
+            return Json(await _dataService.Update(model, id));
         }
 
         public virtual async Task<ActionResult> Delete(int id)
         {
-            throw new NotImplementedException();
+            await _dataService.Delete(id);
+            return Ok();
         }
     }
 }
