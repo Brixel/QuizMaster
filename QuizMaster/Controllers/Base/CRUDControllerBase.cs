@@ -21,24 +21,29 @@ namespace QuizMaster.Controllers.Base
         }
 
         public virtual async Task<ActionResult> GetAllAsync()
-        {
-            return Json(await DataService.GetAllAsync());
-        }
+            => Json(await DataService.GetAllAsync());
 
         public virtual async Task<ActionResult> GetOneAsync(int id)
         {
-            return Json(await DataService.GetOneAsync(id));
+            var model = await DataService.GetOneAsync(id);
+            if (model == null)
+                return NotFound();
+            return Json(model);
         }
 
         public virtual async Task<ActionResult> UpdateAsync(T model, int id)
         {
-            return Json(await DataService.UpdateAsync(model, id));
+            var newModel = await DataService.UpdateAsync(model, id);
+            if (newModel == null)
+                return NotFound();
+            return Json(newModel);
         }
 
         public virtual async Task<ActionResult> DeleteAsync(int id)
         {
-            await DataService.DeleteAsync(id);
-            return Ok();
+            if (await DataService.DeleteAsync(id))
+                return Ok();
+            return NotFound();
         }
     }
 }
