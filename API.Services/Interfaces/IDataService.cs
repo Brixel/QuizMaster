@@ -10,6 +10,6 @@ namespace API.Services.Interfaces
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetOneAsync(int id);
         Task<T> UpdateAsync(T model, int id);
-        Task DeleteAsync(int id);
+        Task<bool> DeleteAsync(int id);
     }
 }
