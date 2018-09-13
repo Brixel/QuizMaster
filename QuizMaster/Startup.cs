@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using API.Services;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,7 +22,7 @@ namespace QuizMaster
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IDataService<Quiz>>();
+            services.AddSingleton<IDataService<Quiz>, MockDataService<Quiz>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
