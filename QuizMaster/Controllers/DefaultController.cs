@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace QuizMaster.Controllers
@@ -13,7 +10,7 @@ namespace QuizMaster.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "Didn't", "believe", "it", "right??" };
+            return new[] {"Didn't", "believe", "it", "right??"};
         }
     }
 }

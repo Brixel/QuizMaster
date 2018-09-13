@@ -1,5 +1,4 @@
-﻿
-namespace QuizMaster.Shared.Models.Base
+﻿namespace QuizMaster.Shared.Models.Base
 {
     public interface IModel
     {

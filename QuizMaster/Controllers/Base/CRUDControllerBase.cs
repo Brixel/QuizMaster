@@ -7,37 +7,37 @@ namespace QuizMaster.Controllers.Base
 {
     public abstract class CRUDControllerBase<T> : Controller where T : IModel
     {
-        protected readonly IDataService<T> _dataService;
+        protected readonly IDataService<T> DataService;
 
         protected CRUDControllerBase(IDataService<T> dataService)
         {
-            _dataService = dataService;
+            DataService = dataService;
         }
-        
+
         public virtual async Task<ActionResult> CreateAsync(T model)
         {
-            var ret = await _dataService.CreateAsync(model);
-            return Created($"{Request.Path}{ret.Id}",ret);
+            var ret = await DataService.CreateAsync(model);
+            return Created($"{Request.Path}{ret.Id}", ret);
         }
 
         public virtual async Task<ActionResult> GetAllAsync()
         {
-            return Json(await _dataService.GetAllAsync());
+            return Json(await DataService.GetAllAsync());
         }
 
         public virtual async Task<ActionResult> GetOneAsync(int id)
         {
-            return Json(await _dataService.GetOneAsync(id));
+            return Json(await DataService.GetOneAsync(id));
         }
 
         public virtual async Task<ActionResult> UpdateAsync(T model, int id)
         {
-            return Json(await _dataService.UpdateAsync(model, id));
+            return Json(await DataService.UpdateAsync(model, id));
         }
 
         public virtual async Task<ActionResult> DeleteAsync(int id)
         {
-            await _dataService.DeleteAsync(id);
+            await DataService.DeleteAsync(id);
             return Ok();
         }
     }

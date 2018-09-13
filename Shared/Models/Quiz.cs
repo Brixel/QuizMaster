@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using QuizMaster.Shared.Models.Base;
+﻿using QuizMaster.Shared.Models.Base;
 
 namespace QuizMaster.Shared.Models
 {
