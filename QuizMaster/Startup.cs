@@ -22,7 +22,10 @@ namespace QuizMaster
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IDataService<Quiz>, MockDataService<Quiz>>();
+            services.AddSingleton<IDataService<Quiz>, MockQuizService>()
+                .AddSingleton<IDataService<Answer>, MockAnswerService>()
+                .AddSingleton<IDataService<Question>, MockQuestionService>()
+                .AddSingleton<IDataService<Round>, MockRoundService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -16,7 +16,7 @@ namespace API.Services
         }
 
 
-        private IList<T> Data { get; set; }
+        protected IList<T> Data { get; set; }
 
 
         public Task<T> CreateAsync(T model)
