@@ -30,6 +30,11 @@ namespace QuizMaster.Controllers
         public override async Task<ActionResult> GetOneAsync([FromQuery] int id)
             => await base.GetOneAsync(id);
 
+        [HttpGet]
+        [Route("api/v1/[controller]/{id}/{propertyName}")]
+        public override async Task<ActionResult> GetPropertyAsync([FromQuery] int id, [FromQuery] string propertyName)
+            => await base.GetPropertyAsync(id, propertyName);
+
         [HttpPut]
         [Route("api/v1/[controller]/{id}")]
         public override async Task<ActionResult> UpdateAsync([FromBody] Quiz quiz, [FromQuery] int id)
@@ -37,7 +42,7 @@ namespace QuizMaster.Controllers
 
         [HttpDelete]
         [Route("api/v1/[controller]/{id}")]
-        public override async Task<ActionResult> DeleteAsync(int id)
+        public override async Task<ActionResult> DeleteAsync([FromQuery] int id)
             => await base.DeleteAsync(id);
     }
 }

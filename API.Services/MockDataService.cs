@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,6 +31,12 @@ namespace API.Services
 
         public Task<T> GetOneAsync(int id)
             => Task.FromResult(Data.FirstOrDefault(x => x.Id == id));
+
+        public Task<TProperty> GetPropertyAsync<TProperty>(int id, Func<T, TProperty> selector)
+            => Task.FromResult(Data
+                .Where(x => x.Id == id)
+                .Select(selector)
+                .FirstOrDefault());
 
         public Task<T> UpdateAsync(T model, int id)
         {

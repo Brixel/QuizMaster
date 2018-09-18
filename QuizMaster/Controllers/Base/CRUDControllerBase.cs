@@ -1,6 +1,8 @@
+using System.Linq;
 using System.Threading.Tasks;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using QuizMaster.Shared.Extensions;
 using QuizMaster.Shared.Models.Base;
 
 namespace QuizMaster.Controllers.Base
@@ -29,6 +31,23 @@ namespace QuizMaster.Controllers.Base
             if (model == null)
                 return NotFound();
             return Json(model);
+        }
+
+        public virtual async Task<ActionResult> GetPropertyAsync(int id, string propertyName)
+        {
+            if (string.IsNullOrWhiteSpace(propertyName))
+                return NotFound();
+
+            var property = typeof(T)
+                .GetProperties()
+                .FirstOrDefault(x => x.Name.EqualsIgnoringCase(propertyName));
+
+            if (property == null)
+                return NotFound();
+            
+            var value = await DataService.GetPropertyAsync(id, x => property.GetValue(x));
+            
+            return Json(value);
         }
 
         public virtual async Task<ActionResult> UpdateAsync(T model, int id)
