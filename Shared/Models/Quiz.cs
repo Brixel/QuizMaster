@@ -2,8 +2,7 @@
 
 namespace QuizMaster.Shared.Models
 {
-    public class Quiz : IModel
+    public class Quiz : Model
     {
-        public int Id { get; set; }
     }
 }
