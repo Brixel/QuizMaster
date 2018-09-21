@@ -16,33 +16,31 @@ namespace QuizMaster.Controllers
         }
 
         [HttpPost]
-        [Route("api/v1/[controller]/")]
         public override async Task<ActionResult> CreateAsync([FromBody] Quiz quiz)
             => await base.CreateAsync(quiz);
 
         [HttpGet]
-        [Route("api/v1/[controller]/")]
         public override async Task<ActionResult> GetAllAsync()
             => await base.GetAllAsync();
 
         [HttpGet]
-        [Route("api/v1/[controller]/{id}")]
-        public override async Task<ActionResult> GetOneAsync([FromQuery] int id)
+        [Route("{id}")]
+        public override async Task<ActionResult> GetOneAsync(int id)
             => await base.GetOneAsync(id);
 
         [HttpGet]
-        [Route("api/v1/[controller]/{id}/{propertyName}")]
-        public override async Task<ActionResult> GetPropertyAsync([FromQuery] int id, [FromQuery] string propertyName)
+        [Route("{id}/{propertyName}")]
+        public override async Task<ActionResult> GetPropertyAsync(int id, string propertyName)
             => await base.GetPropertyAsync(id, propertyName);
 
         [HttpPut]
-        [Route("api/v1/[controller]/{id}")]
-        public override async Task<ActionResult> UpdateAsync([FromBody] Quiz quiz, [FromQuery] int id)
+        [Route("{id}")]
+        public override async Task<ActionResult> UpdateAsync([FromBody] Quiz quiz, int id)
             => await base.UpdateAsync(quiz, id);
 
         [HttpDelete]
-        [Route("api/v1/[controller]/{id}")]
-        public override async Task<ActionResult> DeleteAsync([FromQuery] int id)
+        [Route("{id}")]
+        public override async Task<ActionResult> DeleteAsync(int id)
             => await base.DeleteAsync(id);
     }
 }
