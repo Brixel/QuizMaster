@@ -9,7 +9,7 @@ namespace API.Services
     {
         public MockQuestionService(IDataService<Answer> answerService)
         {
-            var answers = answerService.GetAllAsync().Result;
+            var answers = answerService.GetAllAsync().Result.ToList();
             Data = new List<Question>
             {
                 new Question

@@ -9,8 +9,8 @@ namespace API.Services
     {
         public MockRoundService(IDataService<Question> questionService)
         {
-            var questions = questionService.GetAllAsync().Result;
-            
+            var questions = questionService.GetAllAsync().Result.ToList();
+
             Data = new List<Round>
             {
                 new Round
