@@ -8,15 +8,15 @@ namespace QuizMaster.Controllers
 {
     [Produces("application/json")]
     [Route("api/v1/[controller]")]
-    public class RoundsController : CRUDControllerBase<Round>
+    public class AnswersController : CRUDControllerBase<Answer>
     {
-        public RoundsController(IDataService<Round> dataService) : base(dataService)
+        public AnswersController(IDataService<Answer> dataService) : base(dataService)
         {
         }
-        
+
         [HttpPost]
-        public override async Task<ActionResult> CreateAsync([FromBody] Round round)
-            => await base.CreateAsync(round);
+        public override async Task<ActionResult> CreateAsync([FromBody] Answer answer)
+            => await base.CreateAsync(answer);
 
         [HttpGet]
         public override async Task<ActionResult> GetAllAsync()
@@ -34,8 +34,8 @@ namespace QuizMaster.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public override async Task<ActionResult> UpdateAsync([FromBody] Round round, int id)
-            => await base.UpdateAsync(round, id);
+        public override async Task<ActionResult> UpdateAsync([FromBody] Answer answer, int id)
+            => await base.UpdateAsync(answer, id);
 
         [HttpDelete]
         [Route("{id}")]
