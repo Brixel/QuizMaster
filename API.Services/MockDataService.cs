@@ -19,26 +19,26 @@ namespace API.Services
         protected IList<T> Data { get; set; }
 
 
-        public Task<T> CreateAsync(T model)
+        public virtual Task<T> CreateAsync(T model)
         {
             model.Id = Data.Max(x => x.Id) + 1;
             Data.Add(model);
             return Task.FromResult(model);
         }
 
-        public Task<IEnumerable<T>> GetAllAsync()
+        public virtual Task<IEnumerable<T>> GetAllAsync()
             => Task.FromResult(Data as IEnumerable<T>);
 
-        public Task<T> GetOneAsync(int id)
+        public virtual Task<T> GetOneAsync(int id)
             => Task.FromResult(Data.FirstOrDefault(x => x.Id == id));
 
-        public Task<TProperty> GetPropertyAsync<TProperty>(int id, Func<T, TProperty> selector)
+        public virtual Task<TProperty> GetPropertyAsync<TProperty>(int id, Func<T, TProperty> selector)
             => Task.FromResult(Data
                 .Where(x => x.Id == id)
                 .Select(selector)
                 .FirstOrDefault());
 
-        public Task<T> UpdateAsync(T model, int id)
+        public virtual Task<T> UpdateAsync(T model, int id)
         {
             var index = Data.FindIndex(x => x.Id == id);
             if (index == -1)
@@ -50,7 +50,7 @@ namespace API.Services
             return Task.FromResult(Data[index]);
         }
 
-        public Task<bool> DeleteAsync(int id)
+        public virtual Task<bool> DeleteAsync(int id)
             => Task.FromResult(Data.RemoveOne(x => x.Id == id));
     }
 }
