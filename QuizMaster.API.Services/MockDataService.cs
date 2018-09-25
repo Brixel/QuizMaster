@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Services.Interfaces;
+using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Extensions;
 using QuizMaster.Shared.Models.Base;
 
-namespace API.Services
+namespace QuizMaster.API.Services
 {
     public class MockDataService<T> : IDataService<T> where T : class, IModel
     {

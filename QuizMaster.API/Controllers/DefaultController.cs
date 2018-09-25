@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace QuizMaster.Controllers
+namespace QuizMaster.API.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using API.Services.Interfaces;
+using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Models;
 
-namespace API.Services
+namespace QuizMaster.API.Services
 {
     public class MockRoundService : MockDataService<Round>
     {

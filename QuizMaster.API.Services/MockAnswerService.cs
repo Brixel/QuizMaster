@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using QuizMaster.Shared.Models;
 
-namespace API.Services
+namespace QuizMaster.API.Services
 {
     public class MockAnswerService : MockDataService<Answer>
     {

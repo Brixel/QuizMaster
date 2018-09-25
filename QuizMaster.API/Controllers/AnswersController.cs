@@ -1,22 +1,22 @@
 using System.Threading.Tasks;
-using API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using QuizMaster.Controllers.Base;
+using QuizMaster.API.Controllers.Base;
+using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Models;
 
-namespace QuizMaster.Controllers
+namespace QuizMaster.API.Controllers
 {
     [Produces("application/json")]
     [Route("api/v1/[controller]")]
-    public class QuestionsController : CRUDControllerBase<Question>
+    public class AnswersController : CRUDControllerBase<Answer>
     {
-        public QuestionsController(IDataService<Question> dataService) : base(dataService)
+        public AnswersController(IDataService<Answer> dataService) : base(dataService)
         {
         }
 
         [HttpPost]
-        public override async Task<ActionResult> CreateAsync([FromBody] Question question)
-            => await base.CreateAsync(question);
+        public override async Task<ActionResult> CreateAsync([FromBody] Answer answer)
+            => await base.CreateAsync(answer);
 
         [HttpGet]
         public override async Task<ActionResult> GetAllAsync()
@@ -34,8 +34,8 @@ namespace QuizMaster.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public override async Task<ActionResult> UpdateAsync([FromBody] Question question, int id)
-            => await base.UpdateAsync(question, id);
+        public override async Task<ActionResult> UpdateAsync([FromBody] Answer answer, int id)
+            => await base.UpdateAsync(answer, id);
 
         [HttpDelete]
         [Route("{id}")]

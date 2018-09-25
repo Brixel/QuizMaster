@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizMaster", "QuizMaster\QuizMaster.csproj", "{7399E86E-C5ED-4249-AEA5-ED61821A5C11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizMaster.API", "QuizMaster.API\QuizMaster.API.csproj", "{7399E86E-C5ED-4249-AEA5-ED61821A5C11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{2A87B687-FABD-423C-93F6-0E42199671E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizMaster.Shared", "QuizMaster.Shared\QuizMaster.Shared.csproj", "{2A87B687-FABD-423C-93F6-0E42199671E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Services", "API.Services\API.Services.csproj", "{D426ECF0-5573-4AFC-9880-7E5EB1C72459}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizMaster.API.Services", "QuizMaster.API.Services\QuizMaster.API.Services.csproj", "{D426ECF0-5573-4AFC-9880-7E5EB1C72459}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

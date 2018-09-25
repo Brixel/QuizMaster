@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using API.Services.Interfaces;
+using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Models;
 
-namespace API.Services
+namespace QuizMaster.API.Services
 {
     public class MockQuizService : MockDataService<Quiz>
     {

@@ -1,13 +1,12 @@
-﻿using System.IO;
-using API.Services;
-using API.Services.Interfaces;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using QuizMaster.API.Services;
+using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Models;
 
-namespace QuizMaster
+namespace QuizMaster.API
 {
     public class Startup
     {
