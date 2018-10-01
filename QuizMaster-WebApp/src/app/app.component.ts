@@ -1,25 +1,15 @@
 import { Component } from '@angular/core';
-import { QuizService, Quiz } from './quiz/quiz.service';
-import { Observable } from 'rxjs';
+import { RouterOutlet } from '@angular/router';
+import { slideInAnimation } from './animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],  
+  animations: [ slideInAnimation ]
 })
 export class AppComponent {
-  title = 'QuizMaster';
-  Quizes: Quiz[];
-
-  ngOnInit() {
-    this.loadQuizes();
+  getAnimationData(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
-  loadQuizes(){
-    console.log("Load quizes");
-    this.quizService.getQuizes()
-      .subscribe(quizes => this.Quizes = quizes);
-    // console.log("Quizes loaded: "+ this.Quizes.length)
-  }
-
-  constructor(private quizService: QuizService) { }
 }

@@ -1,0 +1,10 @@
+<mat-grid-list *ngFor="let quiz of quizes$ | async" cols="2" rowHeight="2:1">
+  <a [routerLink]="['/quiz', quiz.id]">
+    <mat-grid-tile>      
+      <div>
+        <h1>{{quiz.title}}</h1>
+        <h2>{{quiz.rounds.length}}</h2>
+      </div>
+    </mat-grid-tile>
+  </a>
+</mat-grid-list>
