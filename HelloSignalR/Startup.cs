@@ -9,6 +9,7 @@ namespace HelloSignalR
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -18,10 +19,9 @@ namespace HelloSignalR
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async context =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseStaticFiles();
+
+            app.UseSignalR(routes => { routes.MapHub<ApplicationHub>("/app"); });
         }
     }
 }
