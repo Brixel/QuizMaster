@@ -38,5 +38,18 @@ namespace HelloSignalR
             
             return Clients.All.SendAsync("Send", message);
         }
+
+        public async Task SendToUser(string name, string message)
+        {
+            var connectionId = Users.FirstOrDefault(x => x.Name == name)?.ConnectionId;
+
+            if (connectionId == null)
+                await Clients.Client(Context.ConnectionId).SendAsync("FailedToSendMessage", name, message);
+            else
+            {
+                await Clients.Client(connectionId).SendAsync("RecievedFrom", Context.ConnectionId, message);
+                await Clients.Client(Context.ConnectionId).SendAsync("SentMessage", name, message);
+            }
+        }
     }
 }
