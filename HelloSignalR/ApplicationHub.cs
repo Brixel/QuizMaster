@@ -10,25 +10,28 @@ namespace HelloSignalR
     // ReSharper disable once ClassNeverInstantiated.Global
     public class ApplicationHub : Hub
     {
-        public List<User> Users { get; set; }
-        
+        public static List<User> Users { get; set; } = new List<User>();
+
 
         public Task Register(string name)
         {
             if (Users.Any(x => x.ConnectionId == Context.ConnectionId))
-                return Clients.Client(Context.ConnectionId).SendAsync("AlreadyRegistered");
+                return Clients.Client(Context.ConnectionId).SendAsync("RespondToRegister", "Id is already registered.");
 
-            Users.Add(new User { Name = name, ConnectionId = Context.ConnectionId });
-            return Clients.Client(Context.ConnectionId).SendAsync("Registered");
+            if (Users.Any(x => x.Name == name))
+                return Clients.Client(Context.ConnectionId).SendAsync("RespondToRegister", "Name is already registered.");
+
+            Users.Add(new User {Name = name, ConnectionId = Context.ConnectionId});
+            return Clients.Client(Context.ConnectionId).SendAsync("RespondToRegister", null);
         }
 
         public Task UnRegister()
         {
             if (Users.All(x => x.ConnectionId != Context.ConnectionId))
-                return Clients.Client(Context.ConnectionId).SendAsync("NotRegistered");
+                return Clients.Client(Context.ConnectionId).SendAsync("RespondToUnRegister", "You are not yet registered, cannot unregister.");
 
             Users.RemoveOne(x => x.ConnectionId == Context.ConnectionId);
-            return Clients.Client(Context.ConnectionId).SendAsync("UnRegistered");
+            return Clients.Client(Context.ConnectionId).SendAsync("RespondToUnRegister", null);
         }
 
 
@@ -36,7 +39,7 @@ namespace HelloSignalR
         {
             if (Users.All(x => x.ConnectionId != Context.ConnectionId))
                 return Clients.Client(Context.ConnectionId).SendAsync("NeedToRegister");
-            
+
             return Clients.All.SendAsync("Send", message);
         }
 
