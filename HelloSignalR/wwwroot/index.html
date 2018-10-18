@@ -21,12 +21,12 @@
             <div v-if="!registered">
                 <form v-on:submit.prevent="register">
                     <input type="text" v-model="username">
-                    <input type="submit" value="Send">
+                    <input type="submit" value="register">
                 </form>
             </div>
             <div v-if="registered">
                 <form v-on:submit.prevent="unregister">
-                    <input type="submit" value="Send">
+                    <input type="submit" value="unregister">
                 </form>
             </div>
             

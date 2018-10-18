@@ -35,12 +35,19 @@
     connection.on("RespondToRegister", (error) => {
         if (error != null){
             app.logs.push(error);
+            app.registered = false;
+        } else {
+            app.registered = true;
+            app.logs.push("registered");
         }
     });
     
     connection.on("RespondToUnRegister", (error) => {
         if (error != null){
             app.logs.push(error);
+        } else {
+            app.registered = false;
+            app.logs.push("unregistered");
         }
     });
 
