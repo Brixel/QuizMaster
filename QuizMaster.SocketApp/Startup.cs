@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using QuizMaster.SocketApp.Hubs;
 
 namespace QuizMaster.SocketApp
 {
@@ -9,6 +10,7 @@ namespace QuizMaster.SocketApp
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -18,7 +20,11 @@ namespace QuizMaster.SocketApp
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) => { await context.Response.WriteAsync("Hello World!"); });
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<QuizHub>("/quiz");
+                routes.MapHub<LobbyHub>("/lobby");
+            });
         }
     }
 }
