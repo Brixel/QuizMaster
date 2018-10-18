@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace HelloSignalR
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class ApplicationHub : Hub
     {
         public List<User> Users { get; set; }
@@ -23,7 +24,7 @@ namespace HelloSignalR
 
         public Task UnRegister()
         {
-            if (!Users.Any(x => x.ConnectionId == Context.ConnectionId))
+            if (Users.All(x => x.ConnectionId != Context.ConnectionId))
                 return Clients.Client(Context.ConnectionId).SendAsync("NotRegistered");
 
             Users.RemoveOne(x => x.ConnectionId == Context.ConnectionId);
@@ -33,7 +34,7 @@ namespace HelloSignalR
 
         public Task Send(string message)
         {
-            if (!Users.Any(x => x.ConnectionId == Context.ConnectionId))
+            if (Users.All(x => x.ConnectionId != Context.ConnectionId))
                 return Clients.Client(Context.ConnectionId).SendAsync("NeedToRegister");
             
             return Clients.All.SendAsync("Send", message);
@@ -47,7 +48,7 @@ namespace HelloSignalR
                 await Clients.Client(Context.ConnectionId).SendAsync("FailedToSendMessage", name, message);
             else
             {
-                await Clients.Client(connectionId).SendAsync("RecievedFrom", Context.ConnectionId, message);
+                await Clients.Client(connectionId).SendAsync("ReceivedFrom", Context.ConnectionId, message);
                 await Clients.Client(Context.ConnectionId).SendAsync("SentMessage", name, message);
             }
         }

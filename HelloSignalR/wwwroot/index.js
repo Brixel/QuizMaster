@@ -11,15 +11,15 @@
         },
         methods: {
             async addMessage() {
-        await connection.invoke("Send", this.newMessage);
-        this.newMessage = null;
-    }
-}
-});
+                await connection.invoke("Send", this.newMessage);
+                this.newMessage = null;
+            }
+        }
+    });
 
     connection.on("Send", message => {
         app.messages.push(message);
-});
+    });
 
     await connection.start();
 })();
