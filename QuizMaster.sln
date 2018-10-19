@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloSignalR", "HelloSignal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMaster.SocketApp", "QuizMaster.SocketApp\QuizMaster.SocketApp.csproj", "{8CC433B2-8D08-4CC0-954B-F35A9CC8FD6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMaster.SocketApp.Services", "QuizMaster.SocketApp.Services\QuizMaster.SocketApp.Services.csproj", "{4083C502-94A2-472C-9206-1857C2847399}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8CC433B2-8D08-4CC0-954B-F35A9CC8FD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CC433B2-8D08-4CC0-954B-F35A9CC8FD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CC433B2-8D08-4CC0-954B-F35A9CC8FD6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4083C502-94A2-472C-9206-1857C2847399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4083C502-94A2-472C-9206-1857C2847399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4083C502-94A2-472C-9206-1857C2847399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4083C502-94A2-472C-9206-1857C2847399}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
