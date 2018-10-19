@@ -8,5 +8,7 @@ namespace QuizMaster.Shared.Models
         public User QuizMaster { get; set; }
         public List<User> Participants { get; set; }
         public Quiz Quiz { get; set; }
+        public int CurrentRound { get; set; }
+        public int CurrentQuestion { get; set; }
     }
 }

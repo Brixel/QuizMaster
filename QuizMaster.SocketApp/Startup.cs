@@ -13,6 +13,7 @@ namespace QuizMaster.SocketApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IDataService<Game>, MockGameService>()
+                .AddSingleton<IDataService<User>, MockUserService>()
                 .AddSignalR();
         }
 

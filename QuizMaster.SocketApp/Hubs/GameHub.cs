@@ -14,19 +14,20 @@ namespace QuizMaster.SocketApp.Hubs
             _gameService = gameService;
         }
         
-        public async Task JoinGame(string lobby, string username, string token)
+        public async Task JoinGame(int game, int user, string token)
+        {
+            
+        }
+
+        public async Task LeaveGame(int game, int user, string token)
         {
         }
 
-        public async Task LeaveGame(string lobby, string username, string token)
+        public async Task KickFromGame(int game, string token, int userToKick)
         {
         }
 
-        public async Task KickFromGame(string lobby, string token, string userToKick)
-        {
-        }
-
-        public async Task StartGames(string lobby, string token)
+        public async Task StartGames(int game, string token)
         {
         }
     }
