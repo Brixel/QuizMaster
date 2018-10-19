@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using QuizMaster.Shared.Models.Base;
 
-namespace QuizMaster.API.Services.Interfaces
+namespace QuizMaster.SocketApp.Services.Interfaces
 {
     public interface IDataService<T> where T : IModel
     {

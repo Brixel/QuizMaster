@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using QuizMaster.Shared.Models;
 using QuizMaster.SocketApp.Hubs;
+using QuizMaster.SocketApp.Services;
+using QuizMaster.SocketApp.Services.Interfaces;
 
 namespace QuizMaster.SocketApp
 {
@@ -10,7 +12,8 @@ namespace QuizMaster.SocketApp
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSignalR();
+            services.AddSingleton<IDataService<Game>, MockGameService>()
+                .AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -22,8 +25,7 @@ namespace QuizMaster.SocketApp
 
             app.UseSignalR(routes =>
             {
-                routes.MapHub<QuizHub>("/quiz");
-                routes.MapHub<LobbyHub>("/lobby");
+                routes.MapHub<GameHub>("/game");
             });
         }
     }

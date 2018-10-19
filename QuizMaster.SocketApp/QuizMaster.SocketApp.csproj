@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\QuizMaster.Shared\QuizMaster.Shared.csproj" />
+      <ProjectReference Include="..\QuizMaster.SocketApp.Services\QuizMaster.SocketApp.Services.csproj" />
     </ItemGroup>
 
 </Project>
