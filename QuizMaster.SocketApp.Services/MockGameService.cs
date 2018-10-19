@@ -22,11 +22,11 @@ namespace QuizMaster.SocketApp.Services
         {
             var user = await _userService.GetOneAsync(userId);
             if (user == null)
-                throw new NotFoundException<User>(userId, "Could not find the user that wants to join");
+                throw new NotFoundException<User>(userId, $"Could not find the user (id={userId}) that wants to join.");
 
             var game = Data.FirstOrDefault(x => x.Id == gameId);
             if (game == null)
-                throw new NotFoundException<Game>(gameId, "Could not find the game to join");
+                throw new NotFoundException<Game>(gameId, $"Could not find the game (id={gameId}) to join.");
 
             game.Participants.Add(user);
         }
@@ -37,11 +37,11 @@ namespace QuizMaster.SocketApp.Services
             {
                 var game = Data.FirstOrDefault(x => x.Id == gameId);
                 if (game == null)
-                    throw new NotFoundException<Game>(gameId, "Could not find the game to join");
+                    throw new NotFoundException<Game>(gameId, $"Could not find the game (id={gameId}) to join.");
 
                 if (!game.Participants.RemoveOne(x => x.Id == userId))
                     throw new NotFoundException<User>(userId,
-                        "Could not find the user that wants to leave in the game");
+                        $"Could not find the user (id={userId}) that wants to leave in the game.");
             });
         }
 
@@ -51,7 +51,7 @@ namespace QuizMaster.SocketApp.Services
             {
                 var game = Data.FirstOrDefault(x => x.Id == gameId);
                 if (game == null)
-                    throw new NotFoundException<Game>(gameId, "Could not find the game to join");
+                    throw new NotFoundException<Game>(gameId, $"Could not find the game (id={gameId}) to join");
 
                 game.CurrentRound = 0;
                 game.CurrentQuestion = 0;
