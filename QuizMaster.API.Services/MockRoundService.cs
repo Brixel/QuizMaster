@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using QuizMaster.API.Data;
 using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Models;
 
@@ -26,6 +27,14 @@ namespace QuizMaster.API.Services
                     Questions = questions.Where(x => x.Id == 3)
                 }
             };
+        }
+    }
+
+    public class RoundService : DataService<Round>
+    {
+        public RoundService(QuizContext context) : base(context)
+        {
+            
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using QuizMaster.API.Data;
 using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Models;
 
@@ -32,6 +33,14 @@ namespace QuizMaster.API.Services
                     Answers = answers.Where(x => x.Id == 8 || x.Id == 9 || x.Id == 10)
                 }
             };
+        }
+    }
+
+    public class QuestionService : DataService<Question>
+    {
+        public QuestionService(QuizContext context) : base(context)
+        {
+            
         }
     }
 }

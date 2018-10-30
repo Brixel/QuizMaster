@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\QuizMaster.API.Data\QuizMaster.API.Data.csproj" />
     <ProjectReference Include="..\QuizMaster.API.Services\QuizMaster.API.Services.csproj" />
     <ProjectReference Include="..\QuizMaster.Shared\QuizMaster.Shared.csproj" />
   </ItemGroup>

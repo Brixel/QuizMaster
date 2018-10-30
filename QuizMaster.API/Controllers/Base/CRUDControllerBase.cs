@@ -60,9 +60,8 @@ namespace QuizMaster.API.Controllers.Base
 
         public virtual async Task<ActionResult> DeleteAsync(int id)
         {
-            if (await DataService.DeleteAsync(id))
-                return Ok();
-            return NotFound();
+            await DataService.DeleteAsync(id);
+            return Ok();
         }
     }
 }
