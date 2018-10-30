@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using QuizMaster.API.Data;
 using QuizMaster.Shared.Models;
 
 namespace QuizMaster.API.Services
@@ -22,14 +21,6 @@ namespace QuizMaster.API.Services
                 new Answer {Id = 9, IsCorrect = false, Text = "Cury"},
                 new Answer {Id = 10, IsCorrect = false, Text = "Newton"}
             };
-        }
-    }
-
-    public class AnswerService : DataService<Answer>
-    {
-        public AnswerService(QuizContext context) : base(context)
-        {
-            
         }
     }
 }
