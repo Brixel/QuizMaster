@@ -32,7 +32,7 @@ namespace QuizMaster.API.Services
 
         public async Task<T> GetOneAsync(int id)
         {
-            return await _context.Set<T>().SingleAsync(x => x.Id == id);
+            return await _context.Set<T>().SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<TProperty> GetPropertyAsync<TProperty>(int id, Func<T, TProperty> selector)
