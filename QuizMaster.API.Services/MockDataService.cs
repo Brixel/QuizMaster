@@ -50,7 +50,7 @@ namespace QuizMaster.API.Services
             return Task.FromResult(Data[index]);
         }
 
-        public virtual Task<bool> DeleteAsync(int id)
+        public virtual Task DeleteAsync(int id)
             => Task.FromResult(Data.RemoveOne(x => x.Id == id));
     }
 }

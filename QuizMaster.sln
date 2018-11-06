@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizMaster.Shared", "QuizMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizMaster.API.Services", "QuizMaster.API.Services\QuizMaster.API.Services.csproj", "{D426ECF0-5573-4AFC-9880-7E5EB1C72459}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloSignalR", "HelloSignalR\HelloSignalR.csproj", "{40A31FAB-624D-4DF1-9386-6731FB6BB5BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloSignalR", "HelloSignalR\HelloSignalR.csproj", "{40A31FAB-624D-4DF1-9386-6731FB6BB5BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMaster.SocketApp", "QuizMaster.SocketApp\QuizMaster.SocketApp.csproj", "{8CC433B2-8D08-4CC0-954B-F35A9CC8FD6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizMaster.SocketApp", "QuizMaster.SocketApp\QuizMaster.SocketApp.csproj", "{8CC433B2-8D08-4CC0-954B-F35A9CC8FD6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMaster.SocketApp.Services", "QuizMaster.SocketApp.Services\QuizMaster.SocketApp.Services.csproj", "{4083C502-94A2-472C-9206-1857C2847399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizMaster.SocketApp.Services", "QuizMaster.SocketApp.Services\QuizMaster.SocketApp.Services.csproj", "{4083C502-94A2-472C-9206-1857C2847399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMaster.API.Data", "QuizMaster.API.Data\QuizMaster.API.Data.csproj", "{F382A419-18B7-4007-B658-B78B29DD660B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{4083C502-94A2-472C-9206-1857C2847399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4083C502-94A2-472C-9206-1857C2847399}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4083C502-94A2-472C-9206-1857C2847399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F382A419-18B7-4007-B658-B78B29DD660B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F382A419-18B7-4007-B658-B78B29DD660B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F382A419-18B7-4007-B658-B78B29DD660B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F382A419-18B7-4007-B658-B78B29DD660B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

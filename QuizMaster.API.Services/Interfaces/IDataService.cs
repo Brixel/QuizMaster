@@ -12,6 +12,6 @@ namespace QuizMaster.API.Services.Interfaces
         Task<T> GetOneAsync(int id);
         Task<TProperty> GetPropertyAsync<TProperty>(int id, Func<T, TProperty> selector);
         Task<T> UpdateAsync(T model, int id);
-        Task<bool> DeleteAsync(int id);
+        Task DeleteAsync(int id);
     }
 }

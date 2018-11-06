@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuizMaster.API.Services;
 using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Models;
-
+using QuizMaster.API.Data;
 namespace QuizMaster.API
 {
     public class Startup
@@ -21,10 +22,26 @@ namespace QuizMaster.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IDataService<Quiz>, MockQuizService>()
-                .AddSingleton<IDataService<Answer>, MockAnswerService>()
-                .AddSingleton<IDataService<Question>, MockQuestionService>()
-                .AddSingleton<IDataService<Round>, MockRoundService>();
+            bool.TryParse(Configuration["Connections:useSqlite"], out var useSqlite);
+            var sqliteFile = Configuration["Connections:sqliteFile"];
+            if (!useSqlite)
+            {
+
+                services.AddSingleton<IDataService<Quiz>, MockQuizService>()
+                    .AddSingleton<IDataService<Answer>, MockAnswerService>()
+                    .AddSingleton<IDataService<Question>, MockQuestionService>()
+                    .AddSingleton<IDataService<Round>, MockRoundService>();
+            }
+            else
+            {
+                services.AddDbContext<QuizContext>(
+                    options => options.UseSqlite($"Data source={sqliteFile}"));
+                services.AddScoped<IDataService<Quiz>, QuizService>()
+                    .AddScoped<IDataService<Answer>, AnswerService>()
+                    .AddScoped<IDataService<Question>, QuestionService>()
+                    .AddScoped<IDataService<Round>, RoundService>();
+
+            }
             services.AddCors();
         }
 
