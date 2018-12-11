@@ -7,6 +7,8 @@ using QuizMaster.API.Services;
 using QuizMaster.API.Services.Interfaces;
 using QuizMaster.Shared.Models;
 using QuizMaster.API.Data;
+using QuizMaster.API.Extensions;
+
 namespace QuizMaster.API
 {
     public class Startup
@@ -22,11 +24,13 @@ namespace QuizMaster.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddAllAuthentication(Configuration);
+
+
             bool.TryParse(Configuration["Connections:useSqlite"], out var useSqlite);
             var sqliteFile = Configuration["Connections:sqliteFile"];
             if (!useSqlite)
             {
-
                 services.AddSingleton<IDataService<Quiz>, MockQuizService>()
                     .AddSingleton<IDataService<Answer>, MockAnswerService>()
                     .AddSingleton<IDataService<Question>, MockQuestionService>()
@@ -40,8 +44,8 @@ namespace QuizMaster.API
                     .AddScoped<IDataService<Answer>, AnswerService>()
                     .AddScoped<IDataService<Question>, QuestionService>()
                     .AddScoped<IDataService<Round>, RoundService>();
-
             }
+
             services.AddCors();
         }
 
